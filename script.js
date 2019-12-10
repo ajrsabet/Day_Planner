@@ -5,14 +5,14 @@ var day = $('#day');
 var hour = $('#hour');
 // .fitText(1.3);
 function update() {
-	$('#clock').html(moment().format('D. MMMM YYYY H:mm:ss'));
+	$('#clock').html(moment().format('MMMM DD YYYY H:mm:ss'));
 	$('#day').html(moment().day());
 	$('#hour').html(moment().format('H'));
 	//   moment().isoWeekday("Sunday");
 }
 setInterval(update, 1000);
 
-console.log(moment().format('L'));
+console.log(moment().format('HH'));
 
 
 
@@ -24,8 +24,11 @@ var container = $(".container");
 var date = moment("12/25/1995", "MM-DD-YYYY");
 console.log(date.text);
 
+// FOR MULTI DAY PLANNER ADD NAVIGATE FUNCTIONS: PREV, TODAY, NEXT, AND SEARCH FIELD
+
 
 // Build timeblocks
+// FOR MULTI DAY PLANNER ADD FUNCTION TO BE CALLED ON LOAD AND WHEN NAVIGATE BUTTONS ARE PRESSED
 for (let i = 0; i < hourArry.length; i++) {
 
 	var row = $("<div>");
@@ -39,14 +42,23 @@ for (let i = 0; i < hourArry.length; i++) {
 
 	var textArea = $("<textarea>");
 	textArea.addClass("textarea col-md-9");
-	textArea.attr('id', (moment().format('D. MMMM YYYY') + ' ' + currentHour[i]) + ':00');
-	textArea.text("Write something here");
+	textArea.attr('id', hourArry[i]);
+	// FOR MULTI DAY PLANNER CHANGE ID TO THIS TO CREATE A UNIQUE ID FOR EVERY TIMEBLOCK MADE
+	// textArea.attr('id', moment().format('MMMM DD YYYY') + " " + hourArry[i]);
+	textArea.attr("placeholder", "Add to schedule");
+	if (localStorage.getItem(hourArry[i]) !== null) {
+		textArea.text(localStorage.getItem(hourArry[i]))
+		
+	}
 	row.append(textArea);
-	if (currentHour[i] < 12) {
+	
+
+	
+	if (currentHour[i] < parseInt(moment().format('HH'))) {
 		textArea.addClass("past");
-	} else if (currentHour[i] = 12) {
+	} 	else if (currentHour[i] === parseInt(moment().format('HH'))) {
 		textArea.addClass("present");
-	} else if (currentHour[i] > 12) {
+	} 	else if (currentHour[i] > parseInt(moment().format('HH'))) {
 		textArea.addClass("future");
 	}
 
@@ -56,16 +68,16 @@ for (let i = 0; i < hourArry.length; i++) {
 	row.append(saveBtn);
 
 }
+// }
 
 // Get user input
 $(document).ready(function () {
-	$("#saveBtn").click(function () {
-		localStorage.setItem($(".textArea"),$("#textArea").val());
+	$(".saveBtn").click(function () {
+		localStorage.setItem($(this).parent().children("textarea").attr("id") , $(this).parent().children("textarea").val());
 	});
 });
-// Save user input
-// lastScore = JSON.parse(localStorage.getItem('lastScore'));
 
-// localStorage.setItem("lastScore", JSON.stringify(lastScore));
 
-// Navigate to different dates
+
+
+

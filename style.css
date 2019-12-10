@@ -28,7 +28,7 @@ body {
     font-size: 8vh;
     width: 60vw;
     /* line-height: 100px;   */
-    margin: 150px auto 0;
+    margin: 0 auto ;
     padding: 0 50px;
     background: #222;
     color: #eee;
@@ -93,12 +93,12 @@ textarea {
 }
 
 .present {
-    background-color: #ff6961;
+    background-color: #afbdfa;
     color: #000000;
 }
 
 .future {
-    background-color: #77dd77;
+    background-color: #c0f7c0;
     color: #000000;
 }
 
@@ -106,8 +106,35 @@ textarea {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: #06AED5;
+    background-color: rgb(145, 145, 145);
     color: white;
+}
+
+.btn-prev {
+    border-left: 1px solid black;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgb(145, 145, 145);
+	color: white;
+	/* display: flex;
+	justify-content: flex-start; */
+}
+
+.btn-today {
+    border-left: 1px solid black;
+    /* border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px; */
+    background-color: rgb(145, 145, 145);
+    color: white;
+}
+.btn-next {
+    border-left: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgb(145, 145, 145);
+	color: white;
+	/* display: flex;
+	justify-content: flex-end; */
 }
 
 .saveBtn i:hover {
