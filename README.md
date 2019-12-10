@@ -1,4 +1,7 @@
 # Unit 05 Third-Party APIs Homework: Day Planner
+## My Process
+* Based on what I learned from doing the quiz homework, I built this site dynamically. I realized after building the elements that I should have just coded the time blocks in the HTML since it never changes. If I was to develope this site further, I would add navigation buttons: Previous day, today, next day, and jump to specific day search field. This would follow the same logic as what is already built but I would have to add the date along with the time on the items stored in local storage then recall each time I use a navigation button. 
+
 
 ## Minimum Requirements
 
